@@ -2,7 +2,9 @@
  *
  * @returns A promise that is designed to resolve with a list of hobbits, or potentially fail with an failure object. The failure object includes a boolean success property and a string message property.
  */
+
 function getList() {
+  //This entire function is the SINGLE parmeter for the Promise.
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       let potentialFail = Math.round(Math.random() * 100) < 10;
@@ -21,7 +23,7 @@ let ul = document.getElementById("list");
 
 // TODO: If the promise resolves with the list of hobbits
 // Render the list of hobbits as list items within the unordered list with id="list" (check the index.html file)
-getList()
+getList() //.then and .catch attached directly on.
   .then((list) => {
     list.forEach((name) => {
       let li = document.createElement("li");
@@ -32,7 +34,7 @@ getList()
   .catch((err) => {
 // TODO: If the promise rejects with the failure object
 // Display the failure message in the paragraph element with id="error" (check index.html file)
-para.textContent = err.message;
+para.textContent = err.message; //This .message comes from the pair above.
   });
 
 
